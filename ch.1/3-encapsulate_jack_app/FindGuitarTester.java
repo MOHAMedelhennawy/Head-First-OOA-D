@@ -5,11 +5,14 @@ import java.util.List;
 public class FindGuitarTester {
     public static void main(String[] args) {
         Inventory inventory = new Inventory();
+        // Add guitar to rick inventory
         initializeInventory(inventory);
 
-        Guitar whatErinLikes = new Guitar("", 0, Builder.FENDER, "Stratocastor", 
-                                      Type.ELECTRIC, Wood.ALDER, Wood.ALDER);
-        
+        // Erin want's guitar with a specific specs
+        GuitarSpec whatErinLikes = new GuitarSpec(Builder.FENDER, 
+                                    "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER);
+
+        // App search in rick's guitars inventory
         List matchingGuitars = inventory.search(whatErinLikes);
 
         if (!matchingGuitars.isEmpty()) {
@@ -17,10 +20,10 @@ public class FindGuitarTester {
                 Guitar guitar = (Guitar)i.next();
 
                 System.out.println("  We have a " +
-                guitar.getBuilder() + " " + guitar.getModel() + " " +
-                guitar.getType() + " guitar:\n     " +
-                guitar.getBackWood() + " back and sides,\n     " +
-                guitar.getTopWood() + " top.\n  You can have it for only $" +
+                guitar.getGuitarSpec().getBuilder() + " " + guitar.getGuitarSpec().getModel() + " " +
+                guitar.getGuitarSpec().getType() + " guitar:\n     " +
+                guitar.getGuitarSpec().getBackWood() + " back and sides,\n     " +
+                guitar.getGuitarSpec().getTopWood() + " top.\n  You can have it for only $" +
                 guitar.getPrice() + "!\n  ----");
             }
         } else {
