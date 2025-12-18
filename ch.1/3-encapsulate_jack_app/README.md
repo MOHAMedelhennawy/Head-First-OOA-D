@@ -1,0 +1,3 @@
+## Second Step: Apply basic OO principles to add flexibility.
+Rick's clients realy aren't providing a guitar object...
+I mean, they don't actually give him a guitar to compare against his inventory
