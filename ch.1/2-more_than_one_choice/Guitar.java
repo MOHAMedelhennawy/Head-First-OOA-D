@@ -4,6 +4,7 @@ public class Guitar {
     private Builder builder;
     private Type type;
     private double price;
+    // private int numStrings;
 
     public Guitar (String serialNumber, double price, Builder builder,
                    String model, Type type, Wood backWood, Wood topWood) {
@@ -14,6 +15,7 @@ public class Guitar {
                         this.type = type;
                         this.backWood = backWood;
                         this.topWood = topWood;
+                        // this.numStrings = numStrings;
                     }
 
     public String getSerialNumber() {
@@ -47,4 +49,8 @@ public class Guitar {
     public Wood getTopWood() {
         return topWood;
     }
+
+    // public int getNumStrings() {
+    //     return numStrings;
+    // }
 }
