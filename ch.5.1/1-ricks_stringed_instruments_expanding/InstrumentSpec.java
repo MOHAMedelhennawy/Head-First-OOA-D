@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public abstract class InstrumentSpec {
     private Builder builder;
     private String model;
@@ -33,25 +35,11 @@ public abstract class InstrumentSpec {
         return topWood;
     }
 
-    @Override
-    public String toString() {
-        return (
-            "{ " +
-                "Builder: " + builder + 
-                ", Model: " + model +
-                ", Type: " + type +
-                ", BackWood: " + backWood +
-                ", TopWood: " + topWood +
-                ", Num Strings: " + numStrings +
-            " }"
-        );
-    }
-
     public boolean matches(InstrumentSpec otherSpec) {
         if (this == otherSpec) return true;
         if (otherSpec == null || !(otherSpec instanceof InstrumentSpec)) return false;
 
-        InstrumentSpec spec = (InstrumentSpec) otherSpec;
+        InstrumentSpec spec = otherSpec;
         return Objects.equals(builder, spec.builder) &&
                Objects.equals(model, spec.model) &&
                Objects.equals(type, spec.type) &&

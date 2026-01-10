@@ -12,7 +12,7 @@ public class GuitarSpec extends InstrumentSpec {
         return numStrings;
     }
 
-    @override
+    @Override
     public boolean matches(InstrumentSpec otherSpec) {
         if (!super.matches(otherSpec)) {
             return false;
@@ -20,10 +20,12 @@ public class GuitarSpec extends InstrumentSpec {
 
         if (otherSpec instanceof GuitarSpec) {
             GuitarSpec otherGuitarSpec = (GuitarSpec) otherSpec;
+
             if (this.numStrings != otherGuitarSpec.numStrings) {
                 return false;
             }
         }
+
         return true;
     }
 }

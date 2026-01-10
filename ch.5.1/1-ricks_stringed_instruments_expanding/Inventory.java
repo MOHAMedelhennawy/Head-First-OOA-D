@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Inventory {
-  private List inventory;
+  private List<Instrument> inventory;
   
   public Inventory() {
     inventory = new LinkedList<>(); 
@@ -17,12 +17,13 @@ public class Inventory {
         } else if (spec instanceof MandolinSpec) {
             instrument = new Mandolin(serialNumber, price, (MandolinSpec) spec);
         }
+
         inventory.add(instrument);
-    }
+  }
   
   public Instrument get(String serialNumber) {
-    for (Iterator i = inventory.iterator(); i.hasNext(); ) {
-      Instrument instrument = (Instrument)i.next();
+    for (Iterator<Instrument> i = inventory.iterator(); i.hasNext(); ) {
+      Instrument instrument = i.next();
 
       if (instrument.getSerialNumber().equals(serialNumber)) {
         return instrument;
@@ -32,13 +33,13 @@ public class Inventory {
     return null;
   }
 
-  public List search(GuitarSpec searchSpec) {
+  public List<Guitar> searchGuitar(GuitarSpec guitarSpec) {
     List<Guitar> matchingGuitars = new LinkedList<>();
   
-    for (Iterator i = guitars.iterator(); i.hasNext(); ) {
+    for (Iterator<Instrument> i = inventory.iterator(); i.hasNext(); ) {
       Guitar guitar = (Guitar)i.next();
   
-      if (searchSpec.equals(guitar.getGuitarSpec())) {
+      if (guitarSpec.matches(guitar.getSpec())) {
         matchingGuitars.add(guitar);
       }
     }
@@ -46,17 +47,17 @@ public class Inventory {
     return matchingGuitars;
   }
 
-  public List searchMandolin(MandolinSpec searchSpec) {
-    List<Mandolin> mat = new LinkedList<>();
+  public List<Mandolin> searchMandolin(MandolinSpec mandolinSpec) {
+    List<Mandolin> matchingMandolin = new LinkedList<>();
   
-    for (Iterator i = mandolins.iterator(); i.hasNext(); ) {
+    for (Iterator<Instrument> i = inventory.iterator(); i.hasNext(); ) {
       Mandolin mandolin = (Mandolin)i.next();
   
-      if (searchSpec.equals(mandolin.getMandolinSpec())) {
-        mat.add(mandolin);
+      if (mandolinSpec.matches(mandolin.getSpec())) {
+        matchingMandolin.add(mandolin);
       }
     }
 
-    return mat;
+    return matchingMandolin;
   }
 }

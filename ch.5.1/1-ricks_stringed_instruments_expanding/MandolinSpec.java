@@ -13,7 +13,7 @@ public class MandolinSpec extends InstrumentSpec {
     }
 
     public boolean matches(InstrumentSpec otherSpec) {
-        if (!super.matches(otherGuitarSpec)) {
+        if (!super.matches(otherSpec)) {
             return false;
         }
 
