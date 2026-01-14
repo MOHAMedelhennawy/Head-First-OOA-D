@@ -33,31 +33,31 @@ public class Inventory {
     return null;
   }
 
-  public List<Guitar> searchGuitar(GuitarSpec guitarSpec) {
-    List<Guitar> matchingGuitars = new LinkedList<>();
+  public List<Instrument> searchGuitar(InstrumentSpec instrumentSpec) {
+    List<Instrument> matchingInstruments = new LinkedList<>();
   
     for (Iterator<Instrument> i = inventory.iterator(); i.hasNext(); ) {
-      Guitar guitar = (Guitar)i.next();
+      Instrument instrument = (Instrument)i.next();
   
-      if (guitarSpec.matches(guitar.getSpec())) {
-        matchingGuitars.add(guitar);
+      if (instrumentSpec.matches(instrument.getSpec())) {
+        matchingInstruments.add(instrument);
       }
     }
 
-    return matchingGuitars;
+    return matchingInstruments;
   }
 
-  public List<Mandolin> searchMandolin(MandolinSpec mandolinSpec) {
-    List<Mandolin> matchingMandolin = new LinkedList<>();
+  // public List<Mandolin> searchMandolin(MandolinSpec mandolinSpec) {
+  //   List<Mandolin> matchingMandolin = new LinkedList<>();
   
-    for (Iterator<Instrument> i = inventory.iterator(); i.hasNext(); ) {
-      Mandolin mandolin = (Mandolin)i.next();
+  //   for (Iterator<Instrument> i = inventory.iterator(); i.hasNext(); ) {
+  //     Mandolin mandolin = (Mandolin)i.next();
   
-      if (mandolinSpec.matches(mandolin.getSpec())) {
-        matchingMandolin.add(mandolin);
-      }
-    }
+  //     if (mandolinSpec.matches(mandolin.getSpec())) {
+  //       matchingMandolin.add(mandolin);
+  //     }
+  //   }
 
-    return matchingMandolin;
-  }
+  //   return matchingMandolin;
+  // }
 }

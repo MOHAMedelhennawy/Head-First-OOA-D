@@ -12,12 +12,11 @@ public class FindGuitarTester {
         GuitarSpec whatErinLikes = new GuitarSpec(Builder.COLLINGS, "CJ", Type.ACOUSTIC, Wood.INDIAN_ROSEWOOD, Wood.SITKA, 4);
 
         // App search in rick's guitars inventory
-        List<Guitar> matchingGuitars = inventory.searchGuitar(whatErinLikes);
+        List<Instrument> matchingGuitars = inventory.searchGuitar(whatErinLikes);
 
         if (!matchingGuitars.isEmpty()) {
-            for (Iterator<Guitar> i = matchingGuitars.iterator(); i.hasNext(); ) {
-                Guitar instrument = i.next();
-
+            for (Iterator<Instrument> i = matchingGuitars.iterator(); i.hasNext(); ) {
+                Instrument instrument = i.next();
                 System.out.println("  We have a " +
                 instrument.getSpec().getBuilder() + " " + instrument.getSpec().getModel() + " " +
                 instrument.getSpec().getType() + " guitar:\n     " +
