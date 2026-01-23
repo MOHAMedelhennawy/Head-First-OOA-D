@@ -1,9 +1,11 @@
-export class Product {
-    id: string;
-    title: string;
-    price: number;
+import { Base } from "./Base.ts";
 
-    constructor(title: string, price: number) {
+export class Product extends Base{
+    private title: string;
+    private price: number;
+
+    constructor(id: string, title: string, price: number) {
+        super(id);
         this.title = title;
         this.price = price;
     }

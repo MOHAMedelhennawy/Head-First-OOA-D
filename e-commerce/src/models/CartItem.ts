@@ -1,21 +1,22 @@
-import { Product } from "./Product.js";
+import { Base } from "./Base.ts";
+import { Product } from "./Product.ts";
 
-export class CartItem {
-    id: string;
-    product: Product;
-    quantity: number;
+export class CartItem extends Base {
+    private product: Product;
+    private quantity: number;
 
     constructor(product: Product) {
+        super();
         this.product = product;
         this.quantity = 1;
     }
 
-    getId(): string {
-        return this.id;
-    }
-
     getProduct(): Product {
         return this.product;
+    }
+
+    getTotalCost(): number {
+        return this.product.getPrice() * this.quantity;
     }
 
     increaseItemQuantity() {
