@@ -1,9 +1,9 @@
-import { initalizeInventory } from "./initlizeInventory.ts";
-import { Inventory } from "./models/Inventory.ts";
-import { Cart } from "./models/Cart.ts";
-import { User } from "./models/User.ts";
-import { CartItem } from "./models/CartItem.ts";
-import { Product } from "./models/Product.ts";
+import { initalizeInventory } from "./initlizeInventory.js";
+import { Inventory } from "./models/Inventory.js";
+import { Cart } from "./models/Cart.js";
+import { User } from "./models/User.js";
+import { CartItem } from "./models/CartItem.js";
+import { Product } from "./models/Product.js";
 
 const inventory = new Inventory();
 
@@ -21,6 +21,3 @@ for (let i = 1; i < 5; i++) {
     let item = new CartItem(prod);
     userCart.addNewItem(item);
 }
-
-
-console.log(user.toString());
